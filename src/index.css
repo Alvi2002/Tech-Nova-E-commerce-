@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Mobile app feel: disable default tap highlight color on mobile */
+    -webkit-tap-highlight-color: transparent; 
+  }
+  
+  body {
+    @apply bg-background text-primary-dark antialiased;
+    /* Safe area support for mobile notches and modern displays */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar for a premium look */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F8FAFC;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0F172A; /* Navy Blue */
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4AF37; /* Gold Accent on hover */
+  }
+}
+
+@layer utilities {
+  /* Utility for hiding scrollbar but allowing scrolling - useful for horizontal mobile sliders */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+    }
